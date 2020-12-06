@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="BasicWeatherData.cs" />
     <Compile Include="CurrentConditionDisplay.cs" />
-    <Compile Include="ForecastDisplay.cs" />
     <Compile Include="IDisplayElement.cs" />
     <Compile Include="IObserver.cs" />
     <Compile Include="IStorage.cs" />

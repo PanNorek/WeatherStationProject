@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace WeatherStation
 {
-    abstract class BasicWeatherData:ISubject
+    abstract class BasicWeatherData
     {
-        protected List<IObserver> _observers;
+        
         protected double _temperature;
         protected double _humidity;
         protected double _pressure;
@@ -17,7 +17,7 @@ namespace WeatherStation
         
         public BasicWeatherData()
         {
-        _observers = new List<IObserver>();
+        
         TemperatureUnit = 'F';
             _updateTime = DateTime.Now;
         }
@@ -31,13 +31,7 @@ namespace WeatherStation
                 TemperatureUnit = 'C';
             }
         }
-        public void SetMeasurements(double temp, double hum, double press)
-        {
-            this.Temperature = temp;
-            this._humidity = hum;
-            this._pressure = press;
-            MeasurementsChanged();
-        }
+       
         public void ChangeTemperatureUnitToFahrenheit()
         {
             if (TemperatureUnit == 'C')
@@ -46,38 +40,17 @@ namespace WeatherStation
                 TemperatureUnit = 'F';
             }
         }
-    public void NotifyObservers()
-    {
-        foreach (IObserver obs in _observers)
-        {
-            obs.Update(Temperature, _humidity, _pressure);
-        }
-    }
+     
 
-    public void RegisterObserver(IObserver o)
-    {
-        _observers.Add(o);
+    
 
-    }
+    
 
-    public void RemoveObserver(IObserver o)
-    {
-        int i = _observers.IndexOf(o);
-        if (i >= 0)
-        {
-            _observers.RemoveAt(i);
-        }
-
-    }
-
-    public void MeasurementsChanged()
-    {
-        NotifyObservers();
-    }
+   
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"Temp:{_temperature} degrees {_temperatureUnit}\t{_humidity}%\t{_pressure}hPa");
+            sb.Append($"Data: {_updateTime}\tTemp:{_temperature} degrees {_temperatureUnit}\t{_humidity}%\t{_pressure}hPa\t");
             return sb.ToString();
         }
     }
