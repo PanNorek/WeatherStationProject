@@ -14,6 +14,9 @@ namespace WeatherStation
         double _average;
         double _max;
         ISubject _weatherData;
+        double _PM10;
+        double _PM2p5;
+
         public StatisticDisplay(ISubject weatherData)
         {
             _min = default;
@@ -44,6 +47,13 @@ namespace WeatherStation
             }
     
             _average = (_max + _min) / 2;
+            Display();
+        }
+        public void Update(double temp, double humidity, double pressure, double pm10, double pm2p5)
+        {
+            Update(temp, humidity, pressure);
+            this._PM10 = pm10;
+            this._PM2p5 = pm2p5;
             Display();
         }
     }

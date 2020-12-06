@@ -10,15 +10,18 @@ namespace WeatherStation
     {
         static void Main(string[] args)
         {
-            WeatherData weatherData = new WeatherData();
-            CurrentConditionDisplay currentDisplay = new CurrentConditionDisplay(weatherData);
-            StatisticDisplay statisticsDisplay = new StatisticDisplay(weatherData);
-            ForecastDisplay forecastDisplay = new ForecastDisplay(weatherData);
-            weatherData.SetMeasurements(80, 65, 30.4);
-            weatherData.SetMeasurements(82, 70, 29.4);
-            weatherData.SetMeasurements(78, 90, 29.4);
-            weatherData.ChangeTemperatureUnitToCelsius();
-            Console.WriteLine(weatherData.Temperature +" "+ weatherData.TemperatureUnit);
+            CurrentWeatherData weatherData1 = new CurrentWeatherData();
+            CurrentWeatherData weatherData2 = new CurrentWeatherData();
+            CurrentWeatherData weatherData3 = new CurrentWeatherData();
+            CurrentWeatherData weatherData4 = new CurrentWeatherData();
+            CurrentConditionDisplay currentDisplay = new CurrentConditionDisplay(weatherData1);
+            StatisticDisplay statisticsDisplay = new StatisticDisplay(weatherData1);
+            ForecastDisplay forecastDisplay = new ForecastDisplay(weatherData1);
+            weatherData1.SetMeasurements(80, 65, 1012);
+            weatherData2.SetMeasurements(82, 70, 1006);
+            weatherData3.SetMeasurements(78, 90, 1000);
+            weatherData4.SetMeasurements(130, 60, 1012);
+            
             Console.ReadLine();
         }
     }
