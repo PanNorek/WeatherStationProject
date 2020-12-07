@@ -6,55 +6,67 @@ using System.Threading.Tasks;
 
 namespace WeatherStation
 {
-    class StatisticDisplay : IObserver, IDisplayElement
+    class StatisticDisplay : IDataStationObserver, IDisplayElement
     {
-        double _temperature;
+       
+        IDataStationSubject _weatherDataStation;
+        
+        string _stationName;
+        (int, int) _position;
+       List<SpecifedWeatherData> _WeatherStationData;
+       
+      
 
-        double _min;
-        double _average;
-        double _max;
-        ISubject _weatherData;
-        double _PM10;
-        double _PM2p5;
+        
 
-        public StatisticDisplay(ISubject weatherData)
+        public StatisticDisplay(IDataStationSubject weatherData)
         {
-            _min = default;
-            _max = default;
-            this._weatherData = weatherData;
-            _weatherData.RegisterObserver(this);
+            _WeatherStationData = new List<SpecifedWeatherData>();
+
+            this._weatherDataStation = weatherData;
+            _weatherDataStation.RegisterObserver(this);
         }
 
         public void Display()
         {
-            Console.WriteLine($"Min/Avg/Max temperature:{_min}/{_average}/{_max} ");
+            Console.WriteLine($"Min/Max temp: {FindMinMaxTemperature().Item1}/{FindMinMaxTemperature().Item2} AVG: {CalculateAverageTemperature()}");
         }
 
-        public void Update(double temp, double humidity, double pressure)
+
+        public void Update(string stationName, (int, int) position, List<SpecifedWeatherData> currentWeathers)
         {
-            this._temperature = temp;
-            if (_temperature > _max)
-            {
-                _max = _temperature;
-            }
-            if (_min == 0)
-            {
-                _min = _temperature;
-            }
-            if (_temperature < _min)
-            {
-                _min = _temperature;
-            }
-    
-            _average = (_max + _min) / 2;
+            _stationName = stationName;
+            _position = position;
+            _WeatherStationData = currentWeathers;
             Display();
         }
-        public void Update(double temp, double humidity, double pressure, double pm10, double pm2p5)
+        public (double,double) FindMinMaxTemperature()
+        {            
+            var tmp = this._WeatherStationData.First<SpecifedWeatherData>().Temperature;
+            double max = tmp;
+            double min = tmp;
+            foreach (SpecifedWeatherData item in _WeatherStationData)
+            {
+                if (item.Temperature > max)
+                {
+                    max = item.Temperature;
+                }
+                if (item.Temperature < min)
+                {
+                    min = item.Temperature;
+                }
+            }
+            return (min, max);
+        }
+        public double CalculateAverageTemperature()
         {
-            Update(temp, humidity, pressure);
-            this._PM10 = pm10;
-            this._PM2p5 = pm2p5;
-            Display();
+            double sum = 0;
+            foreach (var item in this._WeatherStationData)
+            {
+                sum += item.Temperature;
+            }
+            return (double)sum / (_WeatherStationData.Count());
+
         }
     }
 }

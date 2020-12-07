@@ -10,19 +10,23 @@ namespace WeatherStation
     {
         
         protected double _temperature;
-        protected double _humidity;
-        protected double _pressure;
-        protected char _temperatureUnit;
-        protected DateTime _updateTime;
-        
+        private double humidity;
+        private double pressure;
+        private char _temperatureUnit;
+        private DateTime updateTime;
+
         public BasicWeatherData()
         {
         
-        TemperatureUnit = 'F';
-            _updateTime = DateTime.Now;
+        TemperatureUnit = 'C';
+            UpdateTime = DateTime.Now;
         }
         public double Temperature { get => _temperature; set => _temperature = value; }
         public char TemperatureUnit { get => _temperatureUnit; set => _temperatureUnit = value; }
+        public double Humidity { get => humidity; set => humidity = value; }
+        public double Pressure { get => pressure; set => pressure = value; }
+        public DateTime UpdateTime { get => updateTime; set => updateTime = value; }
+
         public void ChangeTemperatureUnitToCelsius()
         {
             if (TemperatureUnit == 'F')
@@ -50,7 +54,7 @@ namespace WeatherStation
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"Data: {_updateTime}\tTemp:{_temperature} degrees {_temperatureUnit}\t{_humidity}%\t{_pressure}hPa\t");
+            sb.Append($"Data: {UpdateTime}\tTemp:{_temperature} degrees {TemperatureUnit}\t{Humidity}%\t{Pressure}hPa\t");
             return sb.ToString();
         }
     }

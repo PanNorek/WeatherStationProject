@@ -8,8 +8,8 @@ namespace WeatherStation
 {
     interface IStorage
     {
-        bool Push(CurrentWeatherData o);
-        CurrentWeatherData ShowLastItem();
+        bool Push(SpecifedWeatherData o);
+        SpecifedWeatherData ShowLastItem();
 
 
     }
