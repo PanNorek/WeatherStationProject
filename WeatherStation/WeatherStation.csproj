@@ -46,8 +46,6 @@
     <Compile Include="BasicWeatherData.cs" />
     <Compile Include="MainStation.cs" />
     <Compile Include="CurrentConditionDisplay.cs" />
-    <Compile Include="IDataStationObserver.cs" />
-    <Compile Include="IDataStationSubject.cs" />
     <Compile Include="IDisplayElement.cs" />
     <Compile Include="IObserver.cs" />
     <Compile Include="IStorage.cs" />
@@ -57,7 +55,10 @@
     <Compile Include="Station.cs" />
     <Compile Include="StatisticDisplay.cs" />
     <Compile Include="SpecifedWeatherData.cs" />
+    <Compile Include="StatisticStationReporter.cs" />
     <Compile Include="WeatherDataStation.cs" />
+    <Compile Include="WeatherDataStationObserver.cs" />
+    <Compile Include="WeatherUnknownException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

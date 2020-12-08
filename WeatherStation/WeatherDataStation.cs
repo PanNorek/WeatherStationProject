@@ -6,28 +6,31 @@ using System.Threading.Tasks;
 
 namespace WeatherStation
 {
-    class WeatherDataStation:Station,IStorage//, IDataStationSubject
+     class WeatherDataStation:Station,IStorage
     {
         
-        (int,int) _position;
+        string _position;
         //List<IDataStationObserver> _dataStationObservers;
 
         List<SpecifedWeatherData> _WeatherStationData;
         
         public WeatherDataStation():base()
         {
-            _WeatherStationData = new List<SpecifedWeatherData>();
+            WeatherStationData = new List<SpecifedWeatherData>();
 
         }
-        public WeatherDataStation(string name, (int,int) position):base(name)
+        public WeatherDataStation(string name, string position):base(name)
         {
-            _WeatherStationData = new List<SpecifedWeatherData>();
+            WeatherStationData = new List<SpecifedWeatherData>();
             // _dataStationObservers = new List<IDataStationObserver>();
             Position = position;
 
         }
 
-        public (int, int) Position { get => _position; set => _position = value; }
+        public string Position { get => _position; set => _position = value; }
+        internal List<SpecifedWeatherData> WeatherStationData { get => _WeatherStationData; set => _WeatherStationData = value; }
+
+
 
         // public void MeasurementsChanged()
         // {
@@ -47,7 +50,7 @@ namespace WeatherStation
         {
             if (o != null)
             {
-                _WeatherStationData.Add(o);                
+                WeatherStationData.Add(o);                
 
                 return true;
             }
@@ -70,7 +73,7 @@ namespace WeatherStation
 
         public SpecifedWeatherData ShowLastItem()
         {
-            return(SpecifedWeatherData) _WeatherStationData.Last<SpecifedWeatherData>();
+            return(SpecifedWeatherData) WeatherStationData.Last<SpecifedWeatherData>();
         }
 
        
@@ -78,8 +81,8 @@ namespace WeatherStation
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"ID Stacji: {_id} Nazwa: {_stationName}\t współrzędne:{Position.Item1},{Position.Item2}");
-            foreach (var item in _WeatherStationData)
+            sb.AppendLine($"ID Stacji: {_id} Nazwa: {_stationName}\t współrzędne:{Position}");
+            foreach (var item in WeatherStationData)
             {
                 sb.AppendLine(item.ToString());
             }

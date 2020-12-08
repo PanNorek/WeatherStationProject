@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace WeatherStation
 {
-    class StatisticDisplay : IDataStationObserver, IDisplayElement
+    class StatisticDisplay :  IDisplayElement
     {
        
-        IDataStationSubject _weatherDataStation;
+        
         
         string _stationName;
         (int, int) _position;
@@ -19,13 +19,13 @@ namespace WeatherStation
 
         
 
-        public StatisticDisplay(IDataStationSubject weatherData)
-        {
-            _WeatherStationData = new List<SpecifedWeatherData>();
-
-            this._weatherDataStation = weatherData;
-            _weatherDataStation.RegisterObserver(this);
-        }
+       //public StatisticDisplay(IDataStationSubject weatherData)
+       //{
+       //    _WeatherStationData = new List<SpecifedWeatherData>();
+       //
+       //    this._weatherDataStation = weatherData;
+       //    _weatherDataStation.RegisterObserver(this);
+       //}
 
         public void Display()
         {

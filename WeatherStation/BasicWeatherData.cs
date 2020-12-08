@@ -9,11 +9,10 @@ namespace WeatherStation
     abstract class BasicWeatherData
     {
         
-        protected double _temperature;
-        private double humidity;
-        private double pressure;
+          
+        private double _humidity,_pressure, _temperature;
         private char _temperatureUnit;
-        private DateTime updateTime;
+        private DateTime _updateTime;
 
         public BasicWeatherData()
         {
@@ -23,9 +22,9 @@ namespace WeatherStation
         }
         public double Temperature { get => _temperature; set => _temperature = value; }
         public char TemperatureUnit { get => _temperatureUnit; set => _temperatureUnit = value; }
-        public double Humidity { get => humidity; set => humidity = value; }
-        public double Pressure { get => pressure; set => pressure = value; }
-        public DateTime UpdateTime { get => updateTime; set => updateTime = value; }
+        public double Humidity { get => _humidity; set => _humidity = value; }
+        public double Pressure { get => _pressure; set => _pressure = value; }
+        public DateTime UpdateTime { get => _updateTime; set => _updateTime = value; }
 
         public void ChangeTemperatureUnitToCelsius()
         {
