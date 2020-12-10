@@ -31,8 +31,8 @@ namespace WeatherStation
             station1.Push(weatherData3);
             //weatherData4.SetMeasurements(130, 60, 1012);
             MainStation motherstation = new MainStation("Stacja Główna");
-            motherstation.AddWeatherStationToMainStation(station1);
-            motherstation.AddWeatherStationToMainStation(station2);
+            Console.WriteLine(motherstation.AddWeatherStationToMainStation(station1));
+            //motherstation.AddWeatherStationToMainStation(station2);
 
             //Console.WriteLine(station1);
             ///Console.WriteLine(station2);
@@ -43,15 +43,27 @@ namespace WeatherStation
             StatisticStationReporter reporter1 = new StatisticStationReporter("FixedGPS");
             reporter1.Subscribe(provider);
             StatisticStationReporter reporter2 = new StatisticStationReporter("MobileGPS");
-            reporter2.Subscribe(provider);
+            //reporter2.Subscribe(provider);
             //
             provider.TrackWeatherStation(station1);
             reporter1.Unsubscribe();
-            provider.TrackWeatherStation(station2);
+            //provider.TrackWeatherStation(station2);
             provider.TrackWeatherStation(null);
             provider.EndTransmission();
-
-
+            station1.SaveDataStationtoJSON();
+            station3 = WeatherDataStation.LoadDataStationJSON("Krakow.json");
+            weatherData1.SaveDatatoJSON("test.json");
+            weatherData4 = SpecifedWeatherData.OdczytajJSON("test.json");
+            Console.WriteLine("|||||||||||");
+            Console.WriteLine(weatherData4);
+            Console.WriteLine("|||||||||||");
+            Console.WriteLine(station3);
+            Console.WriteLine("|||||||||||comparator");
+            station1.TemperatureCalsiusSort(true);
+            Console.WriteLine(station1);
+            Console.WriteLine("|||||||||||comparatorfalse");
+            station1.TemperatureCalsiusSort(false);
+            Console.WriteLine(station1);
             Console.ReadLine();
         }
     }
