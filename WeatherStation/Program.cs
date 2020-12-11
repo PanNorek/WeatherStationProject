@@ -62,7 +62,7 @@ namespace WeatherStation
             station1.TemperatureCalsiusSort(true);
             Console.WriteLine(station1);
             Console.WriteLine("|||||||||||comparatorfalse");
-            station1.TemperatureCalsiusSort(false);
+            station1.TemperatureCalsiusSort();
             Console.WriteLine(station1);
             Console.ReadLine();
         }

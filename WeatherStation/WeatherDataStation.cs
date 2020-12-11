@@ -96,94 +96,67 @@ namespace WeatherStation
         {
             return MemberwiseClone();
         }
-        public void TemperatureCalsiusSort()
+      
+        public void TemperatureCalsiusSort(bool sortType = false)
         {
-            _WeatherStationData.Sort(new TemperatureComparator());
-        }
-        public void TemperatureCalsiusSort(bool sortType)
-        {
-            bool sortMethod = false;
-            sortMethod = sortType;
-            if (sortMethod == false) { _WeatherStationData.Sort(new TemperatureComparator()); }
+            
+            if (sortType == false) { _WeatherStationData.Sort(new TemperatureComparator()); }
             else {
                 _WeatherStationData.Sort(new TemperatureComparator());
                 _WeatherStationData.Reverse();
             }
         }
-        public void HumiditySort()
-        {
-            _WeatherStationData.Sort(new HumidityComparator());
-        }
-        public void HumiditySort(bool sortType)
+       
+        public void HumiditySort(bool sortType = false)
         {
             
-            bool sortMethod = false;
-            sortMethod = sortType;
-            if (sortMethod == false) { _WeatherStationData.Sort(new HumidityComparator()); }
+            
+            if (sortType == false) { _WeatherStationData.Sort(new HumidityComparator()); }
             else
             {
                 _WeatherStationData.Sort(new HumidityComparator());
                 _WeatherStationData.Reverse();
             }
         }
-        public void PressureSort()
-        {
-            _WeatherStationData.Sort(new PressureComparator());
-        }
-        public void PressureSort(bool sortType)
+        
+        public void PressureSort(bool sortType = false)
         {
             
-            bool sortMethod = false;
-            sortMethod = sortType;
-            if (sortMethod == false) { _WeatherStationData.Sort(new PressureComparator()); }
+            
+            if (sortType == false) { _WeatherStationData.Sort(new PressureComparator()); }
             else
             {
                 _WeatherStationData.Sort(new PressureComparator());
                 _WeatherStationData.Reverse();
             }
         }
-        public void DateSort()
-        {
-            _WeatherStationData.Sort(new DateComparator());
-        }
-        public void DateSort(bool sortType)
+       
+        public void DateSort(bool sortType = false)
         {
 
-            bool sortMethod = false;
-            sortMethod = sortType;
-            if (sortMethod == false) { _WeatherStationData.Sort(new DateComparator()); }
+            
+            if (sortType == false) { _WeatherStationData.Sort(new DateComparator()); }
             else
             {
                 _WeatherStationData.Sort(new DateComparator());
                 _WeatherStationData.Reverse();
             }
         }
-        public void PM10Sort()
-        {
-            _WeatherStationData.Sort(new PM10Comparator());
-        }
-        public void PM10Sort(bool sortType)
+     
+        public void PM10Sort(bool sortType = false)
         {
 
-            bool sortMethod = false;
-            sortMethod = sortType;
-            if (sortMethod == false) { _WeatherStationData.Sort(new PM10Comparator()); }
+            
+            if (sortType == false) { _WeatherStationData.Sort(new PM10Comparator()); }
             else
             {
                 _WeatherStationData.Sort(new PM10Comparator());
                 _WeatherStationData.Reverse();
             }
         } 
-        public void PM2p5Sort()
-        {
-            _WeatherStationData.Sort(new PM2p5Comparator());
-        }
-        public void PM2p5Sort(bool sortType)
-        {
-
-            bool sortMethod = false;
-            sortMethod = sortType;
-            if (sortMethod == false) { _WeatherStationData.Sort(new PM2p5Comparator()); }
+        public void PM2p5Sort(bool sortType = false)
+        {                  
+            if (sortType == false) { _WeatherStationData.Sort(new PM2p5Comparator()); }
             else
             {
                 _WeatherStationData.Sort(new PM2p5Comparator());
