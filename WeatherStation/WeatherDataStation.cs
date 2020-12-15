@@ -8,7 +8,7 @@ using System.Text;
 namespace WeatherStation
 {
     [Serializable]
-    class WeatherDataStation : Station, IStorage,ICloneable
+     public class WeatherDataStation : Station, IStorage,ICloneable
     {
 
         string _position;
@@ -23,7 +23,7 @@ namespace WeatherStation
         public WeatherDataStation(string name, string position) : base(name)
         {
             WeatherStationData = new List<SpecifedWeatherData>();
-            // _dataStationObservers = new List<IDataStationObserver>();
+           
             Position = position;
 
         }

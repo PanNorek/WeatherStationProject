@@ -1,0 +1,33 @@
+﻿<Window x:Class="WeatherUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:WeatherUI"
+        
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Background="Gray">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" FontSize="18">
+            <MenuItem Header="_Plik">
+                <MenuItem x:Name="LoadMenuItem" Header="_Wczytaj" Click="LoadFromFile_Click"/>
+                <MenuItem x:Name="SaveMenuItem" Header="_Zapisz"/>
+            </MenuItem>
+        </Menu>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image x:Name="LogoImg" Grid.Column="1" HorizontalAlignment="Left" Height="144" Margin="21,10,-167,0" VerticalAlignment="Top" Width="148" Source="logo.png"/>
+            <Button x:Name="ActualDataBtn" Content="Aktualne dane ze stacji" Grid.Column="1" HorizontalAlignment="Left" Height="59" Margin="294,48,-659,0" VerticalAlignment="Top" Width="368" FontSize="24" Click="CurrentCondition_Click"/>
+        </Grid>
+
+    </DockPanel>
+</Window>

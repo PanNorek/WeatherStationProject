@@ -8,7 +8,7 @@ namespace WeatherStation
 {
     
     [Serializable]
-    abstract class BasicWeatherData:ICloneable
+    public abstract class BasicWeatherData:ICloneable
     {
         
           

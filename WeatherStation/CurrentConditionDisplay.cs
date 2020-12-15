@@ -14,12 +14,19 @@ namespace WeatherStation
         double _PM10;
         double _PM2p5;
         ISubject _weatherData;
-        
+        private SpecifedWeatherData currentData;
+
         public CurrentConditionDisplay(ISubject weatherData)
         {
             this._weatherData = weatherData;
             _weatherData.RegisterObserver(this);
         }
+
+        public CurrentConditionDisplay(SpecifedWeatherData currentData)
+        {
+            this.currentData = currentData;
+        }
+
         public void Display()
         {
             StringBuilder sb = new StringBuilder();
