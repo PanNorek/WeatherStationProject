@@ -24,16 +24,16 @@ namespace WeatherStation
             weatherData3.SetAllMeasurements(23, 90, 1000,25,30);
             WeatherDataStation station1 = new WeatherDataStation("Krakow", "50.0647° N, 19.9450° E");
 
-           WeatherDataStation station2 = new WeatherDataStation("Katowice", "50.0647° N, 19.9450° E");
-           WeatherDataStation station3 = new WeatherDataStation("Katowice", "50.0647° N, 19.9450° E");
+            WeatherDataStation station2 = new WeatherDataStation("Katowice", "50.0647° N, 19.9450° E");
+            WeatherDataStation station3 = new WeatherDataStation("Katowice", "50.0647° N, 19.9450° E");
             station1.Push(weatherData1);
             station1.Push(weatherData2);
             station1.Push(weatherData3);
             //weatherData4.SetMeasurements(130, 60, 1012);
-            MainStation motherstation = new MainStation("Stacja Główna");
-            Console.WriteLine(motherstation.AddWeatherStationToMainStation(station1));
-            //motherstation.AddWeatherStationToMainStation(station2);
-
+            MainStation motherstation = new MainStation("StacjaGłówna");
+            motherstation.AddWeatherStationToMainStation(station1);
+            motherstation.AddWeatherStationToMainStation(station2);
+            motherstation.SaveDataStationtoJSON();
             //Console.WriteLine(station1);
             ///Console.WriteLine(station2);
             ///Console.WriteLine(station3);
