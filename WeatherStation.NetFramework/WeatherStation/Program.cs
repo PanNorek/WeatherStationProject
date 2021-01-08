@@ -64,6 +64,8 @@ namespace WeatherStation
             //Console.WriteLine("|||||||||||comparatorfalse");
             //station1.TemperatureCalsiusSort();
             //Console.WriteLine(station1);
+
+
             Console.ReadLine();
         }
     }

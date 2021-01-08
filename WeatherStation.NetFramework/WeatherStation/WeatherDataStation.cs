@@ -11,6 +11,7 @@ namespace WeatherStation
      public class WeatherDataStation : Station, IStorage,ICloneable
     {
 
+        
         string _position;
 
         List<SpecifedWeatherData> _WeatherStationData;

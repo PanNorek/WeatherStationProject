@@ -35,7 +35,7 @@
                             
                             </Grid>
                             
-                        </StackPanel>
+                        </StackPanel>   
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

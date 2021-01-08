@@ -11,8 +11,8 @@ namespace WeatherStation
     [Serializable]
     public class SpecifedWeatherData :BasicWeatherData, ISubject,ICloneable
     {
-        
-        
+
+        public int Id{ get; set; }
         double _PM10, _PM2p5;        
         List<IObserver> _observers;
 

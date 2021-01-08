@@ -5,13 +5,21 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using WeatherStationDatabase;
 
-namespace StationGUI
+namespace WpfApp1
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            using (var dbContext = new WeatherStationDbContext())
+            {
+
+            }
+        }
     }
 }
